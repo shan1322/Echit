@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VITCMUN: E-Chit System</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/demo.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/form-labels-on-top.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/scrollbar.css') }}">
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+-->
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/w3.css') }}">
+	<script type="text/javascript" src="{{ url_for('static', filename='assets/socket.io.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/jquery.min.js') }}"></script>
+<script>
+$(document).ready(function(){
+ $('#login').click(function()
+ {
+	 /*user=$('#username').val();
+	 if(user== " ")
+	 alert("Please enter a username..")
+	 else
+	 {
+	 var socket=io.connect('http://192.168.43.37:5000/register')
+   socket.emit('registeruser',user)*/
+	 naam=$("#username").val()
+	 console.log(naam)
+	 cook="Loginwala=" + naam +";";
+	 console.log("original cookie supposed to be: " + cook)
+	 document.cookie=cook
+ });
+});
+</script>
+</head>
+<body bgcolor="#1c1c1c">
+
+	<header>
+		<h1>VITCMUN: E-Chit System</h1>
+    </header>
+	<br><Br>
+    <div class="main-content">
+        <form class="form-labels-on-top" method="post" id="form1">
+            <div class="form-title-row">
+                <h1>Login</h1>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Username</span>
+                    <input type="text" name="username" id="username">
+                </label>
+            </div>
+			<div class="form-row">
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+            <div class="form-row">
+                <button id="login" type="submit" style="display: block; margin: 0 auto;">Proceed</button>
+            </div>
+						<br/>
+						<br/>
+						<!--<div>
+							<button id="login" style="display: block; margin: 0 auto;">Generate sid</button>
+						</div>-->
+    </div>
+	</form>
+	<br><br>
+	<footer>
+		<h1>Debate.     Delegate.     Decimate.</h1>
+    </footer>
+</body>
+</html>
